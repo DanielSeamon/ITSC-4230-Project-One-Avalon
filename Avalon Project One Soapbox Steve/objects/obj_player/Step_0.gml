@@ -17,14 +17,51 @@ if (keyboard_check(vk_right) && !instance_place(x+move_speed, y, obj_block)) {
 // Perhaps we swhould think about messing with "speed" instead of vspeed for less stiff jumping physics (?)
 // TODO: Impliment variable jump height wether the button is tapped or held?
 if(keyboard_check(vk_up)) {
-		if instance_place(x, y+1, obj_block){
-			vspeed = jump_height;
+	obj_platform.solid = false
+	alarm[0] = 20
+	if instance_place(x, y+1, obj_block)
+	{
+		vspeed = jump_height;
+	}
+	else if instance_place(x, y+1, obj_platform)
+	{
+		vspeed = jump_height
 	}
 }
 
+//Implement going down through platform
+if(keyboard_check(vk_down))
+{
+	downPlatform = true
+	obj_platform.solid = false
+	alarm[0] = 10
+	
+}
+else
+{
+	downPlatform = false
+}
+
+
+
+// Allows player to stand on blocks
 if instance_place(x, y+1, obj_block){
 	gravity = 0;
-} else {
+	
+}
+else if instance_place(x, y+1, obj_platform)
+{
+	if downPlatform == false
+	{
+		gravity = 0;
+	}
+	else
+	{
+		gravity = 0.5
+		vspeed = 5
+	}
+}
+else {
 	gravity = 0.5;
 }
 
