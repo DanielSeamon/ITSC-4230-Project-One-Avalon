@@ -87,9 +87,11 @@ if(onWall){
 	//Implement going down through platform
 	if(keyboard_check(vk_down))
 	{
-		downPlatform = true
-		obj_platform.solid = false
-		alarm[0] = 10
+		if(instance_exists(obj_platform)){
+			downPlatform = true
+			obj_platform.solid = false
+			alarm[0] = 10
+		}
 	
 	}
 	else
