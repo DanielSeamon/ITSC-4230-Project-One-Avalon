@@ -70,8 +70,10 @@ if(onWall){
 	// Perhaps we swhould think about messing with "speed" instead of vspeed for less stiff jumping physics (?)
 	// TODO: Impliment variable jump height wether the button is tapped or held?
 	if(keyboard_check(vk_up) || keyboard_check(vk_space)) {
-		obj_platform.solid = false
-		alarm[0] = 20
+		if(instance_exists(obj_platform)){
+			obj_platform.solid = false
+			alarm[0] = 20
+		}
 		if instance_place(x, y+1, obj_block)
 		{
 			vspeed = jump_height;
