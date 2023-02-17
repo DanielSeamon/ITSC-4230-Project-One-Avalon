@@ -9,6 +9,7 @@
     {"id":{"name":"spr_objectClean","path":"sprites/spr_objectClean/spr_objectClean.yy",},"order":8,},
     {"id":{"name":"obj_platform","path":"objects/obj_platform/obj_platform.yy",},"order":7,},
     {"id":{"name":"obj_danger","path":"objects/obj_danger/obj_danger.yy",},"order":2,},
+    {"id":{"name":"obj_persistent","path":"objects/obj_persistent/obj_persistent.yy",},"order":9,},
     {"id":{"name":"obj_block","path":"objects/obj_block/obj_block.yy",},"order":1,},
     {"id":{"name":"spr_platform","path":"sprites/spr_platform/spr_platform.yy",},"order":11,},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},"order":0,},

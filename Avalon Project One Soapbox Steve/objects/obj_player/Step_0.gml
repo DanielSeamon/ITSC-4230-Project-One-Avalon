@@ -26,10 +26,10 @@ if(onWall){
 		// In other words, do we wnat the player to jump up a wall (i.e Mega Man X) or jump only
 		// to the other wall (Mario)?
 		if (place_meeting(x-5, y, obj_block)){
-			x += move_speed;
+			x += move_speed + 15;
 			image_xscale = 1
 		} else {
-			x -= move_speed;
+			x -= move_speed + 15;
 			image_xscale = -1
 		}
 		// This locks the player from influencing their direction briefly after jumping
@@ -113,6 +113,3 @@ if(onWall){
 
 vspeed = min(vspeed, 12);
 
-if (keyboard_check(ord("R"))){
-	room_restart();
-}
