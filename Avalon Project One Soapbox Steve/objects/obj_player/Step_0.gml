@@ -42,15 +42,29 @@ if(onWall){
 } else {
 	// When the player presses "left", flip the sprite to face left and move the player left at their movement speed value
 	if (keyboard_check(vk_left) && !instance_place(x-move_speed, y, obj_block)) {
-			x += -move_speed
+			hspeed += -move_speed
 			image_xscale = -1;
 	}
 
 	// When the player presses "right", flip the sprite to face right and move the player right at their movement speed value
 	if (keyboard_check(vk_right) && !instance_place(x+move_speed, y, obj_block)) {
-			x += move_speed
+			hspeed += move_speed
 			image_xscale = 1;
 	}
+	
+	if(!keyboard_check(vk_left) and !keyboard_check(vk_right))
+	{
+		if(hspeed < 0)
+		{
+			hspeed += 1
+		}
+		else if(hspeed > 0)
+		{
+			hspeed -= 1
+		}
+	}
+	
+	hspeed = clamp(hspeed, -maxMoveSpeed, maxMoveSpeed)
 
 	// When the "up", make the player jump at their jump_height
 	// Perhaps we swhould think about messing with "speed" instead of vspeed for less stiff jumping physics (?)
