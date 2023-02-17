@@ -80,6 +80,13 @@ if(onWall){
 	{
 		downPlatform = false
 	}
+	
+	// Dash Feature
+	// Its dysfunctional now, but I'll fix it later
+	if (keyboard_check_pressed(ord("Z"))){
+
+	}
+}
 
 
 
@@ -104,5 +111,8 @@ if(onWall){
 		gravity = 0.5;
 	}
 
-	vspeed = min(vspeed, 12);
-	}
+vspeed = min(vspeed, 12);
+
+if (keyboard_check(ord("R"))){
+	room_restart();
+}
