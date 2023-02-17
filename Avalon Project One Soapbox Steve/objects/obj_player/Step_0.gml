@@ -3,7 +3,7 @@
 
 // If a "block" is directly to the left of right of the player, change player state to
 // "onWall"
-if(place_meeting(x-5, y, obj_block) || place_meeting(x+5, y, obj_block)){
+if(place_meeting(x-5, y, obj_block) && keyboard_check(vk_left) || place_meeting(x+5, y, obj_block) && keyboard_check(vk_right)){
 	onWall = true;
 } else {
 	// When a wall is not to the left or right of the player, remove "onWall" state
