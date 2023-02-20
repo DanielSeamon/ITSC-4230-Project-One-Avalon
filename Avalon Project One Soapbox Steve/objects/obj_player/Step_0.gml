@@ -39,6 +39,29 @@ if(onWall){
 		// This lock lasts for 10 frames.
 		alarm[1] = 10;
 	}
+	// This code runs if the player is dashing
+} else if (dashing) {
+	// Temporarily make the player weightless
+	gravity = 0;
+	// If the player is facing right, dash right
+	// If the player is facing left, dash left
+	if(image_xscale = 1){
+		hspeed = lengthdir_x(dashSpeed, 0);
+	} else {
+		hspeed = lengthdir_x(dashSpeed, -180);
+	}
+	// Reduce the "dash length" by speed
+	dashRemaining -= dashSpeed;
+	
+	// When the dash length is 0,
+	// Set hspeed to 0
+	// Set dashing to false
+	if (dashRemaining < 0){
+		hspeed = 0;
+		//vspeed = 0;
+		dashing = false;
+	}
+	
 } else {
 	// When the player presses "left", flip the sprite to face left and move the player left at their movement speed value
 	if (keyboard_check(vk_left) && !instance_place(x-move_speed, y, obj_block)) {
@@ -100,8 +123,18 @@ if(onWall){
 	}
 	
 	// Dash Feature
-	// Its dysfunctional now, but I'll fix it later
-	if (keyboard_check_pressed(ord("Z"))){
+	if (canDash && keyboard_check_pressed(ord("Z"))){
+		
+		// The player cannot dash again right after dashing
+		canDash = false;
+		// Calculate the dash speed
+		dashSpeed = dash_distance / dashTime;
+		
+		// Temp variable to store how far the dash should go
+		dashRemaining = dash_distance;
+		
+		// Set the player's dashing state to true
+		dashing = true;
 
 	}
 }
@@ -111,10 +144,12 @@ if(onWall){
 	// Allows player to stand on blocks
 	if instance_place(x, y+1, obj_block){
 		gravity = 0;
+		canDash = true;
 	
 	}
 	else if instance_place(x, y+1, obj_platform)
 	{
+		canDash = true;
 		if downPlatform == false
 		{
 			gravity = 0;
