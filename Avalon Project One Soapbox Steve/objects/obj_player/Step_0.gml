@@ -3,7 +3,11 @@
 
 // If a "block" is directly to the left of right of the player, change player state to
 // "onWall"
+<<<<<<< HEAD
 if(place_meeting(x-1, y, obj_block) && keyboard_check(vk_left) || place_meeting(x+1, y, obj_block) && keyboard_check(vk_right)){
+=======
+if(place_meeting(x-5, y, obj_block) && keyboard_check(vk_left) || place_meeting(x+5, y, obj_block) && keyboard_check(vk_right)){
+>>>>>>> 66094d4c939c6d14ca4c1723c6d388f96a40f876
 	onWall = true;
 } else {
 	// When a wall is not to the left or right of the player, remove "onWall" state
@@ -15,8 +19,11 @@ if(onWall){
 	// This slows down the player's vertical speed when the player is on a wall
 	// This makes them "slide" down slowly
 	vspeed = min(vspeed + 1, 2);
+<<<<<<< HEAD
 	//y+=2
 	show_debug_message("On wall")
+=======
+>>>>>>> 66094d4c939c6d14ca4c1723c6d388f96a40f876
 	
 	// While the player slides down a wall, press the "jump" button to jump off of it.
 	if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_up)) {
@@ -37,7 +44,10 @@ if(onWall){
 		// This locks the player from influencing their direction briefly after jumping
 		// Control Lock yay or nay?
 		controlLock = true;
+<<<<<<< HEAD
 		//Needs to be implemented still
+=======
+>>>>>>> 66094d4c939c6d14ca4c1723c6d388f96a40f876
 		
 		// This lock lasts for 10 frames.
 		alarm[1] = 10;
@@ -67,6 +77,7 @@ if(onWall){
 	
 } else {
 	// When the player presses "left", flip the sprite to face left and move the player left at their movement speed value
+<<<<<<< HEAD
 	if (keyboard_check(vk_left) && !instance_place(x - 1, y, obj_block)) {
 			hspeed += -move_speed
 			image_xscale = -1;
@@ -81,6 +92,19 @@ if(onWall){
 	}
 	
 	//If player is not moving, reduce horizontal speed back to 0
+=======
+	if (keyboard_check(vk_left) && !instance_place(x-move_speed, y, obj_block)) {
+			hspeed += -move_speed
+			image_xscale = -1;
+	}
+
+	// When the player presses "right", flip the sprite to face right and move the player right at their movement speed value
+	if (keyboard_check(vk_right) && !instance_place(x+move_speed, y, obj_block)) {
+			hspeed += move_speed
+			image_xscale = 1;
+	}
+	
+>>>>>>> 66094d4c939c6d14ca4c1723c6d388f96a40f876
 	if(!keyboard_check(vk_left) and !keyboard_check(vk_right))
 	{
 		if(hspeed < 0)
@@ -93,6 +117,7 @@ if(onWall){
 		}
 	}
 	
+<<<<<<< HEAD
 
 
 	//right //troubleshooting
@@ -132,6 +157,8 @@ if(onWall){
 	}
 	
 	//Clamps horizontal move speed
+=======
+>>>>>>> 66094d4c939c6d14ca4c1723c6d388f96a40f876
 	hspeed = clamp(hspeed, -maxMoveSpeed, maxMoveSpeed)
 
 	// When the "up", make the player jump at their jump_height
@@ -168,7 +195,11 @@ if(onWall){
 	}
 	
 	// Dash Feature
+<<<<<<< HEAD
 	if (canDash && (keyboard_check_pressed(vk_shift) or keyboard_check_pressed(ord("Z")))){
+=======
+	if (canDash && keyboard_check_pressed(ord("Z"))){
+>>>>>>> 66094d4c939c6d14ca4c1723c6d388f96a40f876
 		
 		// The player cannot dash again right after dashing
 		canDash = false;
@@ -189,7 +220,10 @@ if(onWall){
 	// Allows player to stand on blocks
 	if instance_place(x, y+1, obj_block){
 		gravity = 0;
+<<<<<<< HEAD
 		//Able to dash again once touching the ground
+=======
+>>>>>>> 66094d4c939c6d14ca4c1723c6d388f96a40f876
 		canDash = true;
 	
 	}
