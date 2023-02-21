@@ -1,4 +1,4 @@
-/// @description logic for the spiked enemy
+/// @description Collision logic for the spiked enemy
 // You can write your code in this editor
 
 // Player can destroy enemy by dashing into them
