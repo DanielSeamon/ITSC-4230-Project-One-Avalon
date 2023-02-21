@@ -3,6 +3,171 @@
 
 // If a "block" is directly to the left of right of the player, change player state to
 // "onWall"
+
+on_wall = false
+wall_sliding = false
+
+//HORIZONAL MOVMENT
+
+//Cancels out movement if both keys are pressed. Left will be negative, and right will be positive
+horizontal_input = keyboard_check(vk_right) - keyboard_check(vk_left);
+	
+if(horizontal_input != 0 and can_move) //If moving
+{
+	hmove += horizontal_input * _acceleration;
+	//Cap movement to max
+	hmove = clamp(hmove, -_max_movement, _max_movement);
+	
+	//If moving right, face character to right and vice versa
+	if(sign(hmove < 0))
+	{
+		image_xscale = -1
+	}
+	else if(sign(hmove > 0))
+	{
+		image_xscale = 1
+	}
+}
+else //If not moving, decelerate back to 0 horizontal speed
+{
+	if(hmove > _deceleration)
+	{
+		hmove -= _deceleration;
+	}
+	else if (hmove < -_deceleration)
+	{
+		hmove += _deceleration;
+	}
+	else
+	{
+		hmove = 0;
+	}
+}
+	
+//Check for collision with block
+if(place_meeting(x + hmove, y, obj_block))
+{		
+	//Move slowly into the wall if touching it to ensure player is flush with wall
+	while(!place_meeting(x + sign(hmove), y , obj_block)) {
+		x += sign(hmove);
+	}
+		
+	hmove = 0;
+	//set for wall sliding and jumping
+	on_wall = true;
+}
+
+//Doing same as above, but for platforms
+
+/*
+if(place_meeting(x + hmove, y, obj_platform))
+{		
+	//Move slowly into the wall if touching it to ensure player is flush with wall
+	while(!place_meeting(x + sign(hmove), y , obj_platform)) {
+		x += sign(hmove);
+	}
+		
+	hmove = 0;
+}
+*/
+	
+x += hmove;
+
+
+//VERTICAL MOVEMENT
+
+vmove += _gravity;
+
+//Check for if descending while next to wall
+if(on_wall and vmove > 0)
+{
+	//Set movespeed to gravity constant instead of accelerating
+	vmove = _gravity
+	wall_sliding = true;
+}
+	
+//Jumping physics
+if(keyboard_check_pressed(vk_up) or keyboard_check_pressed(vk_space))
+{
+	//Only able to jump if on the ground
+	if(on_ground() or on_platform())
+	{
+		vmove += _jump_height;
+	}
+}
+
+//Wall Jumping
+
+if(wall_sliding)
+{
+	if (keyboard_check_pressed(vk_space) or keyboard_check_pressed(vk_up))
+	{
+
+		
+		hmove = 8 * -sign(image_xscale)
+		vmove = _jump_height / 1.5;
+		show_debug_message("should walljump")
+		//TODO
+		//implement can_move and set to false. Re-enable on alarm timer
+		//adjust values accordingly
+		
+	}
+}
+
+
+
+
+
+	
+//Check for standing on block
+if(place_meeting(x, y + vmove, obj_block))
+{
+	//Move slowly into the ground if touching it to ensure player is flush with ground
+	while(!place_meeting(x, y + sign(vmove), obj_block)) {
+		y += sign(vmove);
+	}
+		
+	vmove = 0;
+}
+
+//Check for standing on platform, only if falling
+if(vmove > 0)
+{
+	if(place_meeting(x, y + vmove, obj_platform))
+	{
+		//Move slowly into the ground if touching it to ensure player is flush with ground
+		while(!place_meeting(x, y + sign(vmove), obj_platform)) {
+			y += sign(vmove);
+		}
+		
+		vmove = 0;
+	}
+}
+
+//Descend through platforms
+if(keyboard_check_pressed(vk_down))
+{
+	//Only able to go down if on a platform
+	counter = 0
+	if(on_platform())
+	{
+		//Used to make movement smoother
+		alarm[0] = 1
+	}
+}
+	
+y += vmove;
+
+
+
+
+
+
+
+
+
+/*
+
 if(place_meeting(x- move_speed - 1, y, obj_block) && keyboard_check(vk_left) || place_meeting(x+ move_speed + 1, y, obj_block) && keyboard_check(vk_right)){
 	onWall = true;
 } else {
@@ -19,6 +184,8 @@ else if hspeed < 0
 {
 	hspeed += 1
 }
+
+
 
 //collision with walls fix
 if place_meeting(x - move_speed -1, y, obj_block) //left
@@ -116,22 +283,6 @@ if(onWall){
 	
 	
 	
-	//When player is not moving, slow back down
-	/*
-	if(!keyboard_check(vk_left) and !keyboard_check(vk_right))
-	{
-		if(hspeed < 0)
-		{
-			hspeed += 1
-		}
-		else if(hspeed > 0)
-		{
-			hspeed -= 1
-		}
-	}
-	
-	hspeed = clamp(hspeed, -maxMoveSpeed, maxMoveSpeed)
-	*/
 	// When the "up", make the player jump at their jump_height
 	// Perhaps we swhould think about messing with "speed" instead of vspeed for less stiff jumping physics (?)
 	// TODO: Impliment variable jump height wether the button is tapped or held?
@@ -223,3 +374,4 @@ if (keyboard_check(vk_right) and !stopRight)// && !instance_place(x+move_speed, 
 	}
 
 vspeed = min(vspeed, 12);
+*/
