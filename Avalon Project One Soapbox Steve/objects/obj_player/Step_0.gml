@@ -3,18 +3,56 @@
 
 // If a "block" is directly to the left of right of the player, change player state to
 // "onWall"
-if(place_meeting(x-5, y, obj_block) && keyboard_check(vk_left) || place_meeting(x+5, y, obj_block) && keyboard_check(vk_right)){
+if(place_meeting(x- move_speed - 1, y, obj_block) && keyboard_check(vk_left) || place_meeting(x+ move_speed + 1, y, obj_block) && keyboard_check(vk_right)){
 	onWall = true;
 } else {
 	// When a wall is not to the left or right of the player, remove "onWall" state
 	onWall = false;
 }
 
+//Counteract uses of hspeed for wall jumping
+if hspeed > 0
+{
+	hspeed -= 1
+}
+else if hspeed < 0
+{
+	hspeed += 1
+}
+
+//collision with walls fix
+if place_meeting(x - move_speed -1, y, obj_block) //left
+{
+	show_debug_message("hit left")
+	x -= 1
+	stopLeft = true
+}
+else
+{
+	stopLeft = false	
+}
+	
+if place_meeting(x + move_speed +1, y, obj_block) //right
+{
+	show_debug_message("hit right")
+	x += 1
+	stopRight = true
+}
+else
+{
+	stopRight = false
+}
+
+
+
+
 // This code runs when the player is on a wall
 if(onWall){
+	show_debug_message("on wall")
 	// This slows down the player's vertical speed when the player is on a wall
 	// This makes them "slide" down slowly
-	vspeed = min(vspeed + 1, 2);
+	//vspeed = min(vspeed + 1, 2);
+	
 	
 	// While the player slides down a wall, press the "jump" button to jump off of it.
 	if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_up)) {
@@ -25,13 +63,19 @@ if(onWall){
 		//		players manually control their distance, orv should they move a set far distance?
 		// In other words, do we wnat the player to jump up a wall (i.e Mega Man X) or jump only
 		// to the other wall (Mario)?
-		if (place_meeting(x-5, y, obj_block)){
-			x += move_speed + 15;
+		if (place_meeting(x-move_speed-1, y, obj_block)) //left
+		{
+
+			hspeed = 12
 			image_xscale = 1
-		} else {
-			x -= move_speed + 15;
+		} else //right
+		{
+
+			hspeed = -12
 			image_xscale = -1
 		}
+		
+		
 		// This locks the player from influencing their direction briefly after jumping
 		// Control Lock yay or nay?
 		controlLock = true;
@@ -41,6 +85,8 @@ if(onWall){
 	}
 	// This code runs if the player is dashing
 } else if (dashing) {
+	
+	show_debug_message("dashing")
 	// Temporarily make the player weightless
 	gravity = 0;
 	// If the player is facing right, dash right
@@ -63,18 +109,15 @@ if(onWall){
 	}
 	
 } else {
+	//show_debug_message("normal state")
 	// When the player presses "left", flip the sprite to face left and move the player left at their movement speed value
-	if (keyboard_check(vk_left) && !instance_place(x-move_speed, y, obj_block)) {
-			x += -move_speed
-			image_xscale = -1;
-	}
-
-	// When the player presses "right", flip the sprite to face right and move the player right at their movement speed value
-	if (keyboard_check(vk_right) && !instance_place(x+move_speed, y, obj_block)) {
-			x += move_speed
-			image_xscale = 1;
-	}
 	
+	
+	
+	
+	
+	//When player is not moving, slow back down
+	/*
 	if(!keyboard_check(vk_left) and !keyboard_check(vk_right))
 	{
 		if(hspeed < 0)
@@ -88,7 +131,7 @@ if(onWall){
 	}
 	
 	hspeed = clamp(hspeed, -maxMoveSpeed, maxMoveSpeed)
-
+	*/
 	// When the "up", make the player jump at their jump_height
 	// Perhaps we swhould think about messing with "speed" instead of vspeed for less stiff jumping physics (?)
 	// TODO: Impliment variable jump height wether the button is tapped or held?
@@ -123,7 +166,7 @@ if(onWall){
 	}
 	
 	// Dash Feature
-	if (canDash && keyboard_check_pressed(ord("Z"))){
+	if (canDash && (keyboard_check_pressed(ord("Z")) or keyboard_check_pressed(vk_shift))){
 		
 		defaultState = false;
 		// The player cannot dash again right after dashing
@@ -140,7 +183,21 @@ if(onWall){
 	}
 }
 
+//Movement
+if (keyboard_check(vk_left) and !stopLeft)// && !instance_place(x-move_speed, y, obj_block)) 
+{
+		x += -move_speed
+		image_xscale = -1;
+		show_debug_message("moving left")
+}
 
+// When the player presses "right", flip the sprite to face right and move the player right at their movement speed value
+if (keyboard_check(vk_right) and !stopRight)// && !instance_place(x+move_speed, y, obj_block)) 
+{
+		x += move_speed
+		image_xscale = 1;
+		show_debug_message("moving right")
+}
 
 	// Allows player to stand on blocks
 	if instance_place(x, y+1, obj_block){
