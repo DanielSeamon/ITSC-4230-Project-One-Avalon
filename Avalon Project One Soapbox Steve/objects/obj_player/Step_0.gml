@@ -3,8 +3,8 @@
 
 // If a "block" is directly to the left of right of the player, change player state to
 // "onWall"
-if(place_meeting(x-1, y, obj_block) && keyboard_check(vk_left) || place_meeting(x+1, y, obj_block) && keyboard_check(vk_right)){
-	//onWall = true;
+if(place_meeting(x-5, y, obj_block) && keyboard_check(vk_left) || place_meeting(x+5, y, obj_block) && keyboard_check(vk_right)){
+	onWall = true;
 } else {
 	// When a wall is not to the left or right of the player, remove "onWall" state
 	onWall = false;
@@ -15,8 +15,6 @@ if(onWall){
 	// This slows down the player's vertical speed when the player is on a wall
 	// This makes them "slide" down slowly
 	vspeed = min(vspeed + 1, 2);
-	//y+=2
-	show_debug_message("On wall")
 	
 	// While the player slides down a wall, press the "jump" button to jump off of it.
 	if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_up)) {
@@ -37,7 +35,6 @@ if(onWall){
 		// This locks the player from influencing their direction briefly after jumping
 		// Control Lock yay or nay?
 		controlLock = true;
-		//Needs to be implemented still
 		
 		// This lock lasts for 10 frames.
 		alarm[1] = 10;
@@ -67,20 +64,17 @@ if(onWall){
 	
 } else {
 	// When the player presses "left", flip the sprite to face left and move the player left at their movement speed value
-	if (keyboard_check(vk_left)) {
-			hspeed += -move_speed
+	if (keyboard_check(vk_left) && !instance_place(x-move_speed, y, obj_block)) {
+			x += -move_speed
 			image_xscale = -1;
-			//hitWall = false
 	}
 
 	// When the player presses "right", flip the sprite to face right and move the player right at their movement speed value
-	if (keyboard_check(vk_right)) {
-			hspeed += move_speed
+	if (keyboard_check(vk_right) && !instance_place(x+move_speed, y, obj_block)) {
+			x += move_speed
 			image_xscale = 1;
-			//hitWall = false
 	}
 	
-	//If player is not moving, reduce horizontal speed back to 0
 	if(!keyboard_check(vk_left) and !keyboard_check(vk_right))
 	{
 		if(hspeed < 0)
@@ -93,9 +87,6 @@ if(onWall){
 		}
 	}
 	
-
-
-	//Clamps horizontal move speed
 	hspeed = clamp(hspeed, -maxMoveSpeed, maxMoveSpeed)
 
 	// When the "up", make the player jump at their jump_height
@@ -132,8 +123,9 @@ if(onWall){
 	}
 	
 	// Dash Feature
-	if (canDash && (keyboard_check_pressed(vk_shift) or keyboard_check_pressed(ord("Z")))){
+	if (canDash && keyboard_check_pressed(ord("Z"))){
 		
+		defaultState = false;
 		// The player cannot dash again right after dashing
 		canDash = false;
 		// Calculate the dash speed
@@ -153,7 +145,6 @@ if(onWall){
 	// Allows player to stand on blocks
 	if instance_place(x, y+1, obj_block){
 		gravity = 0;
-		//Able to dash again once touching the ground
 		canDash = true;
 	
 	}
@@ -175,4 +166,3 @@ if(onWall){
 	}
 
 vspeed = min(vspeed, 12);
-
