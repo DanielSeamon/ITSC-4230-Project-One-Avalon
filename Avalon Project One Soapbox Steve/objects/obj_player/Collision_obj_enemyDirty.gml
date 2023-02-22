@@ -3,12 +3,12 @@
 
 
 //Allows player to kill enemies by dashing through them
-if(hspeed > 4)
+if(abs(hmove) > 4)
 {
 	instance_destroy(other);
 }
 //If player is above enemy, destroy it
-else if (vspeed > 0 && y < other.y)
+else if (vmove > 0 && y < other.y)
 {
 	instance_destroy(other);
 }

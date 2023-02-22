@@ -2,7 +2,7 @@
 // You can write your code in this editor
 
 // Player can destroy enemy by dashing into them
-if(hspeed > 4)
+if(abs(hmove) > 4)
 {
 	instance_destroy(other);
 }

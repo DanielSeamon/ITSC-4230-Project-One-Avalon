@@ -7,16 +7,32 @@
 on_wall = false
 wall_sliding = false
 
+//
 //HORIZONAL MOVMENT
+//
 
 //Cancels out movement if both keys are pressed. Left will be negative, and right will be positive
 horizontal_input = keyboard_check(vk_right) - keyboard_check(vk_left);
+
+//Nullifies movement if cant_move variables are true
+if(!can_move_left)
+{
+	horizontal_input = keyboard_check(vk_right)
+}
+if(!can_move_right)
+{
+	horizontal_input = -keyboard_check(vk_left)
+}
+
 	
-if(horizontal_input != 0 and can_move) //If moving
+if(horizontal_input != 0) //If moving
 {
 	hmove += horizontal_input * _acceleration;
 	//Cap movement to max
-	hmove = clamp(hmove, -_max_movement, _max_movement);
+	if(!dashing)
+	{
+		hmove = clamp(hmove, -_max_movement, _max_movement);
+	}
 	
 	//If moving right, face character to right and vice versa
 	if(sign(hmove < 0))
@@ -57,35 +73,74 @@ if(place_meeting(x + hmove, y, obj_block))
 	on_wall = true;
 }
 
-//Doing same as above, but for platforms
+//Dashing
 
-/*
-if(place_meeting(x + hmove, y, obj_platform))
-{		
-	//Move slowly into the wall if touching it to ensure player is flush with wall
-	while(!place_meeting(x + sign(hmove), y , obj_platform)) {
-		x += sign(hmove);
-	}
-		
-	hmove = 0;
+//Dash resets only when on ground
+if(on_ground() or on_platform())
+{
+	can_dash = true;
+	//show_debug_message("on ground")
 }
-*/
+
+if(keyboard_check_pressed(vk_shift) or keyboard_check_pressed(ord("Z")))
+{
+	if(can_dash and hmove != 0)
+	{	
+		can_dash = false;
+		dashing = true;
+		vmove = 0;
+		show_debug_message("dashing")
+		if(hmove > 0)
+		{
+			hmove = _max_movement * 2;
+		}
+		else
+		{
+			hmove = -_max_movement * 2;
+		}
+		alarm[2] = 10;
+		
+	}	
+}
+
 	
 x += hmove;
 
-
+//
 //VERTICAL MOVEMENT
+//
 
-vmove += _gravity;
+if(!dashing)
+{
+	vmove += _gravity;
+	vmove = clamp(vmove, -_max_fall_speed, _max_fall_speed)
+}
 
+
+//show_debug_message(vmove)
+//For some reason this code has to be above the wall sliding code
+if(vmove > 1 and on_wall)
+{
+		wall_sliding = true;
+}
+
+//Wall sliding
 //Check for if descending while next to wall
 if(on_wall and vmove > 0)
 {
+	//show_debug_message("on wall")
+	
 	//Set movespeed to gravity constant instead of accelerating
 	vmove = _gravity
-	wall_sliding = true;
-}
 	
+	//show_debug_message(vmove)
+	if(vmove > 1)
+	{
+		wall_sliding = true;
+	}
+}
+
+
 //Jumping physics
 if(keyboard_check_pressed(vk_up) or keyboard_check_pressed(vk_space))
 {
@@ -96,29 +151,35 @@ if(keyboard_check_pressed(vk_up) or keyboard_check_pressed(vk_space))
 	}
 }
 
-//Wall Jumping
 
+//Wall Jumping
 if(wall_sliding)
 {
-	if (keyboard_check_pressed(vk_space) or keyboard_check_pressed(vk_up))
+	//show_debug_message("wall sliding")
+	if ((keyboard_check_pressed(vk_space) or keyboard_check_pressed(vk_up)))
 	{
-
-		
+	
+		//Jumps horizontally depending on what wall player is one
 		hmove = 8 * -sign(image_xscale)
-		vmove = _jump_height / 1.5;
-		show_debug_message("should walljump")
-		//TODO
-		//implement can_move and set to false. Re-enable on alarm timer
-		//adjust values accordingly
+		vmove = _jump_height / 1.3;
+		//show_debug_message("should walljump")
 		
+		
+		if(image_xscale > 0)
+		{
+			can_move_right = false;
+		}
+		else
+		{
+			can_move_left = false;
+		}
+		
+		alarm[1] = 10	
 	}
 }
 
 
 
-
-
-	
 //Check for standing on block
 if(place_meeting(x, y + vmove, obj_block))
 {
@@ -148,7 +209,7 @@ if(vmove > 0)
 if(keyboard_check_pressed(vk_down))
 {
 	//Only able to go down if on a platform
-	counter = 0
+	downCounter = 0
 	if(on_platform())
 	{
 		//Used to make movement smoother
@@ -160,6 +221,7 @@ y += vmove;
 
 
 
+//NON-MOVEMENT RELATED
 
 
 
