@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_enemyClean",
+  "name": "obj_enemyCatClean",
   "spriteId": {
     "name": "spr_catClean",
     "path": "sprites/spr_catClean/spr_catClean.yy",
