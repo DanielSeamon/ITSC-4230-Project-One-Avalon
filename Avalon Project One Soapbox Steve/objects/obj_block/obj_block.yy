@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "obj_block",
   "spriteId": {
-    "name": "spr_devBlock",
-    "path": "sprites/spr_devBlock/spr_devBlock.yy",
+    "name": "spr_block",
+    "path": "sprites/spr_block/spr_block.yy",
   },
   "solid": false,
   "visible": false,
