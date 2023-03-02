@@ -80,6 +80,13 @@ if(place_meeting(x + hmove, y, obj_block))
 }
 
 //Dashing
+if(dashing){
+	with (instance_create_depth(x, y, depth+1, obj_dashTrail)){
+		sprite_index = other.sprite_index;
+		image_blend = c_red;
+		image_alpha = 0.7;
+	}
+}
 
 //Dash resets only when on ground
 if(on_ground() or on_platform())

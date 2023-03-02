@@ -1,10 +1,10 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_enemySpiked",
+  "name": "obj_catDirty",
   "spriteId": {
-    "name": "spr_enemySpiked",
-    "path": "sprites/spr_enemySpiked/spr_enemySpiked.yy",
+    "name": "spr_catDirty",
+    "path": "sprites/spr_catDirty/spr_catDirty.yy",
   },
   "solid": false,
   "visible": true,
@@ -30,10 +30,10 @@
   "eventList": [],
   "properties": [],
   "overriddenProperties": [
-    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"clean_enemy","path":"objects/obj_enemyDirty/obj_enemyDirty.yy",},"objectId":{"name":"obj_enemyDirty","path":"objects/obj_enemyDirty/obj_enemyDirty.yy",},"value":"obj_enemySpikedClean",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"clean_enemy","path":"objects/obj_enemyDirty/obj_enemyDirty.yy",},"objectId":{"name":"obj_enemyDirty","path":"objects/obj_enemyDirty/obj_enemyDirty.yy",},"value":"obj_catClean",},
   ],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Enemies",
+    "path": "folders/Objects/Enemies.yy",
   },
 }
