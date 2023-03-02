@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "obj_enemyDirty",
   "spriteId": {
-    "name": "spr_catDirty",
-    "path": "sprites/spr_catDirty/spr_catDirty.yy",
+    "name": "spr_enemyDirty",
+    "path": "sprites/spr_enemyDirty/spr_enemyDirty.yy",
   },
   "solid": false,
   "visible": true,

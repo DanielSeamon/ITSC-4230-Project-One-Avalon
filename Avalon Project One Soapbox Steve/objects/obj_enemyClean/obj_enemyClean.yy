@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "obj_enemyClean",
   "spriteId": {
-    "name": "spr_catClean",
-    "path": "sprites/spr_catClean/spr_catClean.yy",
+    "name": "spr_enemyClean",
+    "path": "sprites/spr_enemyClean/spr_enemyClean.yy",
   },
   "solid": false,
   "visible": true,
