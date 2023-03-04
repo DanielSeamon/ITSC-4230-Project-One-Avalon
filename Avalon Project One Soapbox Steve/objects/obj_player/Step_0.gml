@@ -52,6 +52,18 @@ if(horizontal_input != 0) //If moving
 }
 else //If not moving, decelerate back to 0 horizontal speed
 {
+	// TODO: Watson I'm not sure how to integrate Friction into
+	// your movement code. In my test_object, the simpler control
+	// programm's friction works, but here the player just keeps
+	// sliding, or doesn't slide at all.
+	// You know your variables better than I do, so shoot me a message
+	// about what to do or feel free t integrate it yourself if it seems
+	// simple enough.
+	/*
+	if (instance_place(x, y+1, obj_block)){
+		friction = 0.1;
+	}
+	*/
 	if(hmove > _deceleration)
 	{
 		hmove -= _deceleration;
