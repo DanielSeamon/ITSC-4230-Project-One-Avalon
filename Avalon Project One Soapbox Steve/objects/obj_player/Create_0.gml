@@ -34,8 +34,17 @@ can_move_right = true;
 can_dash = false;
 dashing = false;
 
-on_ground = function() {
-	return place_meeting(x, y + 1, obj_block);
+on_ground = function()
+{
+	if(place_meeting(x, y + 1, obj_block))
+	{
+		return place_meeting(x, y + 1, obj_block);
+	}
+	else
+	{
+		return place_meeting(x, y + 1, obj_ice);
+	}
+	
 }
 
 on_platform = function() {

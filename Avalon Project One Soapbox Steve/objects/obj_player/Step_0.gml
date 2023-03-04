@@ -6,6 +6,7 @@
 on_wall = false
 wall_sliding = false
 
+
 //Check to see if player falls out of bounds
 if(x < 0 or x > 1920 or y > 1080 or y < 0)
 {
@@ -83,6 +84,19 @@ if(place_meeting(x + hmove, y, obj_block))
 {		
 	//Move slowly into the wall if touching it to ensure player is flush with wall
 	while(!place_meeting(x + sign(hmove), y , obj_block)) {
+		x += sign(hmove);
+	}
+		
+	hmove = 0;
+	//set for wall sliding and jumping
+	on_wall = true;
+}
+
+//Same with ice
+if(place_meeting(x + hmove, y, obj_ice))
+{		
+	//Move slowly into the wall if touching it to ensure player is flush with wall
+	while(!place_meeting(x + sign(hmove), y , obj_ice)) {
 		x += sign(hmove);
 	}
 		
@@ -208,8 +222,25 @@ if(wall_sliding)
 //Check for standing on block
 if(place_meeting(x, y + vmove, obj_block))
 {
+	//Ensure deceleration is set correctly
+	_deceleration = 0.5;
 	//Move slowly into the ground if touching it to ensure player is flush with ground
 	while(!place_meeting(x, y + sign(vmove), obj_block)) {
+		y += sign(vmove);
+	}
+		
+	vmove = 0;
+}
+
+//Same for ice but changes deceleration
+
+if(place_meeting(x, y + vmove, obj_ice))
+{
+	//Makes player decelerate more slowly
+	_deceleration = 0.04;
+	
+	//Move slowly into the ground if touching it to ensure player is flush with ground
+	while(!place_meeting(x, y + sign(vmove), obj_ice)) {
 		y += sign(vmove);
 	}
 		
@@ -247,5 +278,7 @@ y += vmove;
 
 
 //NON-MOVEMENT RELATED
+
+
 
 
