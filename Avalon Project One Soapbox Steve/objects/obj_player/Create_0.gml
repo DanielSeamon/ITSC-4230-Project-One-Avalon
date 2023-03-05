@@ -13,7 +13,7 @@ downPlatform = true
 
 
 _acceleration = 1;
-_deceleration = 0.5;
+_deceleration = 0.1;
 _max_movement = 4;
 _jump_height = -15;
 _gravity = 1;

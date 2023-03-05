@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "obj_enemyflying",
   "spriteId": {
-    "name": "spr_enemyFlying",
-    "path": "sprites/spr_enemyFlying/spr_enemyFlying.yy",
+    "name": "spr_chickenDirty",
+    "path": "sprites/spr_chickenDirty/spr_chickenDirty.yy",
   },
   "solid": false,
   "visible": true,
