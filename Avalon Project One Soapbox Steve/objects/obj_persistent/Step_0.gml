@@ -36,3 +36,20 @@ if(keyboard_check_pressed(ord("C")) && keyboard_check(vk_control))
 	}
 	
 }
+
+
+
+//Enables invincibility
+//Probably want to make the player golden or something with the sprite to show that they are invincible
+if(keyboard_check_pressed(ord("I")) && keyboard_check(vk_control))
+{
+	if(global.invincible)
+	{
+		global.invincible = false;
+	}
+	else
+	{
+		global.invincible = true;
+	}
+	show_debug_message(global.invincible)
+}

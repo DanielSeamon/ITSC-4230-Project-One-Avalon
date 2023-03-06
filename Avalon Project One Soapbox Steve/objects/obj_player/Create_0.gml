@@ -36,6 +36,14 @@ dashing = false;
 
 on_ground = function()
 {
+	if(global.invincible)
+	{
+		if(place_meeting(x, y + 1, obj_danger))
+		{
+			return place_meeting(x, y + 1, obj_danger);
+		}	
+	}
+	
 	if(place_meeting(x, y + 1, obj_block))
 	{
 		return place_meeting(x, y + 1, obj_block);
