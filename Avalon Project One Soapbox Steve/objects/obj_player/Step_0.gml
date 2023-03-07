@@ -199,8 +199,8 @@ if(wall_sliding)
 	{
 	
 		//Jumps horizontally depending on what wall player is one
-		hmove = 8 * -sign(image_xscale)
-		vmove = _jump_height / 1.3;
+		hmove = 9 * -sign(image_xscale)
+		vmove = _jump_height / 1.1;
 		//show_debug_message("should walljump")
 		
 		
@@ -252,6 +252,7 @@ if(vmove > 0)
 {
 	if(place_meeting(x, y + vmove, obj_platform))
 	{
+		_deceleration = 0.5;
 		//Move slowly into the ground if touching it to ensure player is flush with ground
 		while(!place_meeting(x, y + sign(vmove), obj_platform)) {
 			y += sign(vmove);
@@ -270,6 +271,20 @@ if(keyboard_check_pressed(vk_down))
 	{
 		//Used to make movement smoother
 		alarm[0] = 1
+	}
+}
+
+//Allows player to stand on spikes/danger blocks if invincible
+if(global.invincible)
+{
+	if(place_meeting(x, y + vmove, obj_danger))
+	{
+		//Move slowly into the ground if touching it to ensure player is flush with ground
+		while(!place_meeting(x, y + sign(vmove), obj_danger)) {
+			y += sign(vmove);
+		}
+		
+		vmove = 0;
 	}
 }
 	
