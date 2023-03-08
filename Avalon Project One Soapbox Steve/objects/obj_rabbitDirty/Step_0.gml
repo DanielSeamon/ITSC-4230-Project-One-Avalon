@@ -1,44 +1,54 @@
-/// @description Insert description here
-// You can write your code in this editor
+//Horizontal
 
+//Check for wall collision
+if(place_meeting(x + hmove, y, obj_block))
+{		
 
-if(!stopJump)
-{
-	if instance_place(x, y+1, obj_block){
-		vspeed = -5;
-		stopJump = true;
+	if(!_cooldown)
+	{
+		show_debug_message("reverse")
+		hmove = -hmove;
+		_cooldown = true;
 		alarm[0] = 20;
 	}
 }
 
 
-/*if (instance_place(x+1, y-5, obj_block)){
-	hspeed = -hspeed;
-	image_xscale = -image_xscale;
-}*/
-
-if(!stopJump)
+//Cap movement to max
+hmove = clamp(hmove, -_max_movement, _max_movement);
+	
+//If moving right, face character to right and vice versa
+if(sign(hmove < 0))
 {
-	stopJump = true;
-	alarm[0] = 20;
-	if(place_meeting(x + hspeed, y, obj_block))
-	{		
-		hspeed = -hspeed;
-		image_xscale = -image_xscale;
+	image_xscale = -1
+}
+else if(sign(hmove > 0))
+{
+	image_xscale = 1
+}
+x += hmove;
+
+
+//Vertical
+
+vmove += _gravity;
+vmove = clamp(vmove, -_max_fall_speed, _max_fall_speed)
+	
+	
+if(on_ground() or on_platform())
+{
+	vmove += _jump_height;
+}
+	
+//Check for standing on block
+if(place_meeting(x, y + vmove, obj_block))
+{
+	//Move slowly into the ground if touching it to ensure player is flush with ground
+	while(!place_meeting(x, y + sign(vmove), obj_block)) {
+		y += sign(vmove);
 	}
+		
+	vmove = 0;
 }
-else if(place_meeting(x + hspeed, y, obj_block))
-{		
-	//hspeed = 0;
-}
-
-//check for if on ground
-if instance_place(x, y+1, obj_block){
-	gravity = 0;
-} else {
-	gravity = 0.5;
-}
-
-
-//Limits vspeed
-vspeed = min(vspeed, 12);
+	
+y += vmove;
