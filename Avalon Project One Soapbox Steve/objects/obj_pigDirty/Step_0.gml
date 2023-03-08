@@ -1,8 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-if (collision_line(x, y, x+300, y, obj_player, false, false) && cooldown == false){
-	instance_create_layer(x + (image_xscale* 30),y,"Instances", projectile);
-	cooldown = true;
+//Check for player in line of sight with pig
+if (collision_line(x, y, x+300, y, obj_player, false, false))
+{
+	//Start alarm to shoot projectile
 	alarm[0] =  160;
 }

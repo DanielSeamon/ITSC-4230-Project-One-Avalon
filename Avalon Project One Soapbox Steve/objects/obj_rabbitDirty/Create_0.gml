@@ -3,3 +3,5 @@
 
 hspeed = hsp;
 gravity_direction = 270;
+
+stopJump = false;
