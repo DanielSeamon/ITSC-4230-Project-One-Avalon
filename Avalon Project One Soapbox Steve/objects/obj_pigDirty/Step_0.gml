@@ -5,5 +5,5 @@
 if (collision_line(x, y, x+300, y, obj_player, false, false))
 {
 	//Start alarm to shoot projectile
-	alarm[0] =  160;
+	alarm[0] =  25;
 }
