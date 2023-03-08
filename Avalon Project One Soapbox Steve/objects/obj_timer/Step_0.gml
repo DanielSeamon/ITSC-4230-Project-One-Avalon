@@ -2,7 +2,6 @@
 // You can write your code in this editor
 
 //Timer Code
-if(timerOn == true){
 	//Timer increments by 1 frame each step
 	timer += room_speed / 60;
 	
@@ -28,4 +27,3 @@ if(timerOn == true){
 		if (mili > 999){
 			mili = 0;
 		}
-}

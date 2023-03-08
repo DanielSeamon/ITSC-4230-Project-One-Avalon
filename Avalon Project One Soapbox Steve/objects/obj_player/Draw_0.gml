@@ -8,6 +8,12 @@ if(dashing){
 	draw_self();
 
 	shader_reset();
+} else if (global.invincible) {
+	shader_set(Shader2);
+
+	draw_self();
+
+	shader_reset();
 } else {
 	
 	// When the player is not dashing, draw them normally

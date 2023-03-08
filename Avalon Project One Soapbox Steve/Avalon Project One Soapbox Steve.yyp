@@ -26,6 +26,7 @@
     {"id":{"name":"spr_enemyFlyingClean","path":"sprites/spr_enemyFlyingClean/spr_enemyFlyingClean.yy",},"order":16,},
     {"id":{"name":"spr_grassPlatformLeft","path":"sprites/spr_grassPlatformLeft/spr_grassPlatformLeft.yy",},"order":0,},
     {"id":{"name":"spr_catDirty","path":"sprites/spr_catDirty/spr_catDirty.yy",},"order":0,},
+    {"id":{"name":"Shader2","path":"shaders/Shader2/Shader2.yy",},"order":1,},
     {"id":{"name":"rm_level2","path":"rooms/rm_level2/rm_level2.yy",},"order":6,},
     {"id":{"name":"obj_enemyflying","path":"objects/obj_enemyflying/obj_enemyflying.yy",},"order":8,},
     {"id":{"name":"spr_stonePlatformMid","path":"sprites/spr_stonePlatformMid/spr_stonePlatformMid.yy",},"order":0,},
