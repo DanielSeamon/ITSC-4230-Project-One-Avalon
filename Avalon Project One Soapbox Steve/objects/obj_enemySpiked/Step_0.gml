@@ -20,9 +20,9 @@ else
 if (distance_to_object(obj_player) < attack_range){
 	aggro = true;
 	show_debug_message("aggro'd!");
-	hspeed = hsp;
 	} else {
 	//aggro = false;
+	hspeed = hsp;
 	}
 if (aggro = true){
 	
