@@ -8,6 +8,8 @@ if(dashing){
 	draw_self();
 
 	shader_reset();
+	
+// While Player is invincible, tint the player's sprite yellow.
 } else if (global.invincible) {
 	shader_set(Shader2);
 

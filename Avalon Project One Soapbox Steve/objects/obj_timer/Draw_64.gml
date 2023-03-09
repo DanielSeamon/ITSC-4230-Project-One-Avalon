@@ -14,4 +14,5 @@ str_sec = string_replace(str_sec, " ", "0");
 var str_mili = string_format(mili, 3, 0);
 str_mili = string_replace(str_mili, " ", "0");
 
-draw_text(55, 55, "Timer: " + str_min + ":" + str_sec + ":" + str_mili);
+displayTime = "Timer: " + str_min + ":" + str_sec + ":" + str_mili
+draw_text(55, 55, displayTime);
