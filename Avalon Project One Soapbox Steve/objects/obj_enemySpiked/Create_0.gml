@@ -8,3 +8,5 @@ timeline_speed = 1 / room_speed;
 timeline_position = 0;
 timeline_running = true;
 timeline_loop = true;
+
+hspeed = hsp * image_xscale;

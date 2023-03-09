@@ -1,3 +1,2 @@
-// move left for 2 seconds
-
-state = "left";
+// move right once again before the loop
+state = "right"

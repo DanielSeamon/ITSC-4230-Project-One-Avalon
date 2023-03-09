@@ -34,6 +34,7 @@
     {"id":{"name":"spr_stonePlatformMid","path":"sprites/spr_stonePlatformMid/spr_stonePlatformMid.yy",},"order":0,},
     {"id":{"name":"obj_block","path":"objects/obj_block/obj_block.yy",},"order":1,},
     {"id":{"name":"obj_enemyFlyingClean","path":"objects/obj_enemyFlyingClean/obj_enemyFlyingClean.yy",},"order":9,},
+    {"id":{"name":"snd_dashSnare","path":"sounds/snd_dashSnare/snd_dashSnare.yy",},"order":4,},
     {"id":{"name":"spr_enemySpiked","path":"sprites/spr_enemySpiked/spr_enemySpiked.yy",},"order":13,},
     {"id":{"name":"obj_pigClean","path":"objects/obj_pigClean/obj_pigClean.yy",},"order":7,},
     {"id":{"name":"spr_platform","path":"sprites/spr_platform/spr_platform.yy",},"order":11,},
