@@ -119,12 +119,14 @@ if(on_ground() or on_platform())
 {
 	can_dash = true;
 	//show_debug_message("on ground")
+
 }
 
 if(keyboard_check_pressed(vk_shift) or keyboard_check_pressed(ord("Z")))
 {
 	if(can_dash and hmove != 0)
 	{	
+		audio_play_sound(snd_dash,1,false)
 		can_dash = false;
 		dashing = true;
 		vmove = 0;
