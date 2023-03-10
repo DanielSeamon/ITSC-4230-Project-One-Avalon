@@ -7,3 +7,4 @@
 
 // Walk forward in the direction the object is currently facing.
 hspeed = hsp * image_xscale;
+turnCooldown = false;

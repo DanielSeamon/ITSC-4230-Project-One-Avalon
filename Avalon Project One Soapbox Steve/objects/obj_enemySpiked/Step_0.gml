@@ -13,23 +13,28 @@ else if(place_meeting(x + hspeed, y + sprite_height, obj_platform))
 else
 {
 	hspeed = -hspeed;
-	image_xscale = -image_xscale;	
+	image_xscale = -image_xscale;
+	turnCooldown = true;
+	alarm[0] = 15;
 }
 
 if (distance_to_object(obj_player) < attack_range && (obj_player.y + sprite_height > y && obj_player.y - sprite_height < y)){
 	show_debug_message("aggro'd!");
 	sprite_index = spr_turtleAttack;
 	
-	if(obj_player.x > x)
+	if(!turnCooldown)
 	{
-		hspeed = hsp * 3 * 1;
+		if(obj_player.x > x)
+		{
+			hspeed = hsp * 3 * 1;
+		}
+		else
+		{
+			hspeed = hsp * 3 * -1;
+		}
 	}
-	else
-	{
-		hspeed = hsp * 3 * -1;
-	}
-	//alarm[0] = 30
-	}
+
+}
 	else {
 	hspeed = hsp * image_xscale;
 	sprite_index = spr_turtleDirty;
