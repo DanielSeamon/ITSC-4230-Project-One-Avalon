@@ -66,6 +66,7 @@
     {"id":{"name":"obj_objectiveClean","path":"objects/obj_objectiveClean/obj_objectiveClean.yy",},"order":6,},
     {"id":{"name":"obj_ice","path":"objects/obj_ice/obj_ice.yy",},"order":20,},
     {"id":{"name":"obj_enemySpikedClean","path":"objects/obj_enemySpikedClean/obj_enemySpikedClean.yy",},"order":11,},
+    {"id":{"name":"Room6","path":"rooms/Room6/Room6.yy",},"order":7,},
     {"id":{"name":"spr_enemySpikedClean","path":"sprites/spr_enemySpikedClean/spr_enemySpikedClean.yy",},"order":14,},
     {"id":{"name":"spr_background_gridded","path":"sprites/spr_background_gridded/spr_background_gridded.yy",},"order":3,},
     {"id":{"name":"spr_pigClean","path":"sprites/spr_pigClean/spr_pigClean.yy",},"order":0,},
@@ -115,6 +116,7 @@
     {"roomId":{"name":"rm_level1","path":"rooms/rm_level1/rm_level1.yy",},},
     {"roomId":{"name":"rm_level2","path":"rooms/rm_level2/rm_level2.yy",},},
     {"roomId":{"name":"rm_end","path":"rooms/rm_end/rm_end.yy",},},
+    {"roomId":{"name":"Room6","path":"rooms/Room6/Room6.yy",},},
   ],
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Animation Curves","folderPath":"folders/Animation Curves.yy","order":12,},
