@@ -68,7 +68,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "dev_blocks",
-    "path": "folders/Sprites/dev_blocks.yy",
+    "name": "objects",
+    "path": "folders/Sprites/objects.yy",
   },
 }

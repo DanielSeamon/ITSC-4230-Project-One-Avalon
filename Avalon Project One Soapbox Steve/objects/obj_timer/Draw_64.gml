@@ -7,7 +7,7 @@ draw_set_halign(fa_left);
 
 draw_set_font (fnt_GUI); 
 
-//Draw Level Name
+//Draw Level Name based on what room you are in
 switch (room){
 	
 	case rm_devRoom:

@@ -1,13 +1,13 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_danger",
+  "name": "obj_restartFlag",
   "spriteId": {
-    "name": "spr_danger",
-    "path": "sprites/spr_danger/spr_danger.yy",
+    "name": "spr_restartFlag",
+    "path": "sprites/spr_restartFlag/spr_restartFlag.yy",
   },
   "solid": false,
-  "visible": false,
+  "visible": true,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
@@ -28,7 +28,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Platforms ~ Collision",
-    "path": "folders/Objects/Platforms ~ Collision.yy",
+    "name": "Objects",
+    "path": "folders/Objects/Objects.yy",
   },
 }

@@ -1,2 +1,2 @@
-//Print out a congratulations message
+//Print out the first stage time after 0 seconds
 printVal = 0;
