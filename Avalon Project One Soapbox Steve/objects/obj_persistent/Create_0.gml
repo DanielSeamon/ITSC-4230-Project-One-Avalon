@@ -10,3 +10,4 @@ global.invincible = false;
 // individual level completion times.
 global.devRoomTime = " ";
 global.levelOneTime = " ";
+global.levelTwoTime = " ";

@@ -1,10 +1,8 @@
-/// @description Initialize Behavior
+/// @description Insert description here
 // You can write your code in this editor
 
-state = "normal"
-
 // Utilize the tl_spike timeline to coordinate actions
-timeline_index = tl_spike;
+timeline_index = tl_results;
 
 // Set the timeline speed units to equal 1 second (1 / 60 fps)
 timeline_speed = 1 / room_speed;
@@ -16,7 +14,4 @@ timeline_position = 0;
 timeline_running = true;
 
 // The timeline will loop on the object once all its steps are completed
-timeline_loop = true;
-
-// Walk forward in the direction the object is currently facing.
-hspeed = hsp * image_xscale;
+timeline_loop = false;
