@@ -7,7 +7,7 @@
     "path": "sprites/spr_danger/spr_danger.yy",
   },
   "solid": false,
-  "visible": true,
+  "visible": false,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,

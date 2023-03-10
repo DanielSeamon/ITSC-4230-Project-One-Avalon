@@ -2,7 +2,7 @@
 // You can write your code in this editor
 
 //Check for player in line of sight with pig
-if (collision_line(x, y, x+300, y, obj_player, false, false))
+if (collision_line(x, y, x+ (300 * image_xscale), y, obj_player, false, false))
 {
 	//Start alarm to shoot projectile
 	alarm[0] =  25;
