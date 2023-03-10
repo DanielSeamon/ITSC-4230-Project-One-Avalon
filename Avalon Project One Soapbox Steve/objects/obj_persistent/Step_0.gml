@@ -2,13 +2,13 @@
 // You can write your code in this editor
 
 //Restart whole game
-if(keyboard_check(ord("R")) && keyboard_check(vk_control))
+if(keyboard_check(ord("G")) && keyboard_check(vk_control))
 {
 	game_restart();
 }
 
 //Restart level
-if(keyboard_check(ord("R")) &! keyboard_check(vk_control))
+if(keyboard_check(ord("R")) && keyboard_check(vk_control))
 {
 	room_restart();
 }
