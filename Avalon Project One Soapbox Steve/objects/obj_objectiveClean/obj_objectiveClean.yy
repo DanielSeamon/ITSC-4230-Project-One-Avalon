@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "obj_objectiveClean",
   "spriteId": {
-    "name": "spr_objectClean",
-    "path": "sprites/spr_objectClean/spr_objectClean.yy",
+    "name": "spr_trashClean",
+    "path": "sprites/spr_trashClean/spr_trashClean.yy",
   },
   "solid": false,
   "visible": true,

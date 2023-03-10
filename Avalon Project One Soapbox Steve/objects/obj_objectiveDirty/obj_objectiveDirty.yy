@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "obj_objectiveDirty",
   "spriteId": {
-    "name": "spr_objectDirty",
-    "path": "sprites/spr_objectDirty/spr_objectDirty.yy",
+    "name": "spr_trashDirty",
+    "path": "sprites/spr_trashDirty/spr_trashDirty.yy",
   },
   "solid": false,
   "visible": true,
