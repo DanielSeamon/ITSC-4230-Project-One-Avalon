@@ -17,32 +17,16 @@ else
 }
 
 
-if (distance_to_object(obj_player) < attack_range && (obj_player.y + sprite_height > y && obj_player.y - sprite_height < y)){
+if (distance_to_object(obj_player) < attack_range){
 	aggro = true;
 	show_debug_message("aggro'd!");
-	if(obj_player.x > x)
-	{
-		hspeed = hsp * 3 * 1;
+	} else {
+	//aggro = false;
+	//hspeed = hsp;
 	}
-	else
-	{
-		hspeed = hsp * 3 * -1;
-	}
+if (aggro = true){
 	
-	//alarm[0] = 30
-	}
-	else {
-	aggro = false;
-	hspeed = hsp * image_xscale;
-	}
-	
-if (aggro = true)
-{
-
-
-
-}
-/*
+	sprite_index = spr_turtleAttack;
 	// This is a basic state machine
 	switch (state){
 	
@@ -73,8 +57,9 @@ if (aggro = true)
 				hspeed = -hspeed;
 				image_xscale = -image_xscale;
 			}
-		
+		*/
 		default:
 		break;
 	}
-	*/
+	
+}

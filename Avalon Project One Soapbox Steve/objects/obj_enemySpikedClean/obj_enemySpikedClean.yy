@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "obj_enemySpikedClean",
   "spriteId": {
-    "name": "spr_enemySpikedClean",
-    "path": "sprites/spr_enemySpikedClean/spr_enemySpikedClean.yy",
+    "name": "spr_turtleClean",
+    "path": "sprites/spr_turtleClean/spr_turtleClean.yy",
   },
   "solid": false,
   "visible": true,
