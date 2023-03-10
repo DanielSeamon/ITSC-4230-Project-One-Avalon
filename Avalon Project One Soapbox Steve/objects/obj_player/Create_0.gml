@@ -33,6 +33,7 @@ can_move_right = true;
 
 can_dash = false;
 dashing = false;
+dashCooldown = false;
 
 on_ground = function()
 {

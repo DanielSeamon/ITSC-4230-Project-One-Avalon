@@ -115,7 +115,7 @@ if(dashing){
 }
 
 //Dash resets only when on ground
-if(on_ground() or on_platform())
+if((on_ground() or on_platform()) && !dashCooldown)
 {
 	can_dash = true;
 	//show_debug_message("on ground")
@@ -129,6 +129,8 @@ if(keyboard_check_pressed(vk_shift) or keyboard_check_pressed(ord("Z")))
 		audio_play_sound(snd_dashSnare,1,false)
 		can_dash = false;
 		dashing = true;
+		dashCooldown = true;
+		alarm[3] = 50;
 		vmove = 0;
 		show_debug_message("dashing")
 		if(hmove > 0)

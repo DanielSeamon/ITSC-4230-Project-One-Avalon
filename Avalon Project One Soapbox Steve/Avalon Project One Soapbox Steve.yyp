@@ -17,7 +17,6 @@
     {"id":{"name":"obj_catDirty","path":"objects/obj_catDirty/obj_catDirty.yy",},"order":0,},
     {"id":{"name":"spr_objectClean","path":"sprites/spr_objectClean/spr_objectClean.yy",},"order":8,},
     {"id":{"name":"tl_results","path":"timelines/tl_results/tl_results.yy",},"order":1,},
-    {"id":{"name":"tl_spike","path":"timelines/tl_spike/tl_spike.yy",},"order":0,},
     {"id":{"name":"spr_catClean","path":"sprites/spr_catClean/spr_catClean.yy",},"order":0,},
     {"id":{"name":"spr_mudsplatter","path":"sprites/spr_mudsplatter/spr_mudsplatter.yy",},"order":0,},
     {"id":{"name":"obj_platform","path":"objects/obj_platform/obj_platform.yy",},"order":7,},
