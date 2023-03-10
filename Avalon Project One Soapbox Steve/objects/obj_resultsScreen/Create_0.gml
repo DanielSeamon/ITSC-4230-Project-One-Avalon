@@ -15,3 +15,5 @@ timeline_running = true;
 
 // The timeline will loop on the object once all its steps are completed
 timeline_loop = false;
+
+audio_play_sound(snd_endMusic,1,true)
