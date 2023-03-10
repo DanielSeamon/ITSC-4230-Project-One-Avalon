@@ -74,6 +74,7 @@
     {"id":{"name":"spr_trashDirty","path":"sprites/spr_trashDirty/spr_trashDirty.yy",},"order":6,},
     {"id":{"name":"spr_dirt","path":"sprites/spr_dirt/spr_dirt.yy",},"order":6,},
     {"id":{"name":"obj_timer","path":"objects/obj_timer/obj_timer.yy",},"order":0,},
+    {"id":{"name":"obj_controlsText","path":"objects/obj_controlsText/obj_controlsText.yy",},"order":3,},
     {"id":{"name":"spr_steveMoving","path":"sprites/spr_steveMoving/spr_steveMoving.yy",},"order":0,},
     {"id":{"name":"obj_objectiveClean","path":"objects/obj_objectiveClean/obj_objectiveClean.yy",},"order":2,},
     {"id":{"name":"obj_ice","path":"objects/obj_ice/obj_ice.yy",},"order":2,},

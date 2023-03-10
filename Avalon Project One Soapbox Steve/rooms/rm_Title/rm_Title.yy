@@ -18,6 +18,7 @@
   "layers": [
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Instances_Player","instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_642847F3","properties":[],"isDnd":false,"objectId":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":832.0,"y":512.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_783B887B","properties":[],"isDnd":false,"objectId":{"name":"obj_controlsText","path":"objects/obj_controlsText/obj_controlsText.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1024.0,"y":384.0,},
       ],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"Tiles_1","tilesetId":{"name":"TileSet2","path":"tilesets/TileSet2/TileSet2.yy",},"x":0,"y":0,"tiles":{"TileDataFormat":1,"SerialiseWidth":60,"SerialiseHeight":34,"TileCompressedData":[
 -434,-2147483648,-3,10,-18,-2147483648,-2,1,-37,-2147483648,1,11,-7,-2147483648,-3,10,-10,-2147483648,3,1,-2147483648,1,-36,-2147483648,4,11,10,10,-2147483648,-3,1,-3,-2147483648,2,11,-2147483648,-3,1,-6,-2147483648,-2,1,-2,-2147483648,-3,10,4,-2147483648,1,-2147483648,1,-30,-2147483648,13,11,-2147483648,1,-2147483648,1,-2147483648,
@@ -171,6 +172,7 @@
     {"name":"inst_66CADD42","path":"rooms/rm_Title/rm_Title.yy",},
     {"name":"inst_642847F3","path":"rooms/rm_Title/rm_Title.yy",},
     {"name":"inst_1851F404","path":"rooms/rm_Title/rm_Title.yy",},
+    {"name":"inst_783B887B","path":"rooms/rm_Title/rm_Title.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,
