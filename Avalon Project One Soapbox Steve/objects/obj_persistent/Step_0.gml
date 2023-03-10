@@ -53,3 +53,8 @@ if(keyboard_check_pressed(ord("I")) && keyboard_check(vk_control))
 	}
 	show_debug_message(global.invincible)
 }
+
+// stop backgorund music while in results room
+if (room == rm_finalResults) {
+	audio_stop_sound(snd_mainMusic)	
+}

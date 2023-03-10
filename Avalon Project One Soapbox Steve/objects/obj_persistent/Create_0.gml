@@ -1,10 +1,8 @@
 /// @description Set global vars
 // You can write your code in this editor
 
-//While play_music is true play background music
-if (!(room_get_name(rm_end) = true)) {
-	audio_play_sound(snd_mainMusic,1,true)
-}
+//play background music
+audio_play_sound(snd_mainMusic,1,false)
 
 global.invincible = false;
 
