@@ -6,7 +6,7 @@
 show_debug_message(global.invincible)
 if(!global.invincible || (x < 0 or x > 1920 or y > 1080 or y < 0))
 {
-	audio_play_sound(snd_playerDeath,1,false)
+	audio_play_sound(snd_playerDeath,2,false)
 	room_restart();
 	show_debug_message("not invicible")
 }

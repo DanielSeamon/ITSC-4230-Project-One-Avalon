@@ -9,6 +9,8 @@ global.invincible = false;
 // These are for storing level completion times
 // These strings are called at the end of the game to print the player's
 // individual level completion times.
-global.devRoomTime = " ";
-global.levelOneTime = " ";
-global.levelTwoTime = " ";
+global.devRoomTime = "00:00:000";
+global.levelOneTime = "00:00:000";
+global.levelTwoTime = "00:00:000";
+global.levelThreeTime = "00:00:000";
+global.levelFourTime = "00:00:000";

@@ -126,7 +126,7 @@ if(keyboard_check_pressed(vk_shift) or keyboard_check_pressed(ord("Z")))
 {
 	if(can_dash and hmove != 0)
 	{	
-		audio_play_sound(snd_dashSnare,1,false)
+		audio_play_sound(snd_dashSnare,2,false);
 		can_dash = false;
 		dashing = true;
 		dashCooldown = true;
