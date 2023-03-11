@@ -1,6 +1,6 @@
 Documentation for Soapbox Steve
 
-- Gameplay -
+						- Gameplay -
 
 This game is a 2D Platformer inspired by Super Meat Boy.
 The gameplay consists of the player running and jumping in a 2D space,
@@ -10,15 +10,181 @@ on them, or dashing into them. Only once all dirty objects and enemies are clean
 The player is not scored with points, but rather via level completion time.
 Rather than display a high score, the player's completion times of each level are listed at the end of the game. 
 
-- Player Controls and Actions -
+					- Player Controls and Actions -
+
 The player's available actions consist of:
 - Move (Left or Right) [Left / Right Arrow Keys]
 - Jump [Up Arrow Key / Space Bar]
 - Dash [Z or Shift Key]
 - Wall Jump (Jump while pressed against a wall in mid-air) [Up Arrow Key / Space bar]
 
-- Objects -
+>Properties
+	The player can only dash once in mid-air.
+	The player can only dash if they posses a non-zero value of hspeed.
+	If the player exits the boundaries of the room/camera, the player dies.
 
-- Enemies -
+>States
+	on_ground - The player is currently grounded
+	on_platform - The player is currently on a semi-solid platform
+	can_move_left - The player is currently capable of moving left
+	can_move_right - The player is currently capable of moving right
+	canDash - The player is currently able to dash
+	dashCooldown - The player currently cannot dash
+	dashing - The player is currently dashing
+	on_Wall - The player is currently on a wall in mid-air
+	wall_sliding - The player is currently sliding down a wall
+	Invincibility - The player cannot be destroyed by obstacles
+	(Invincibility is a global variable, but 
+
+>Alarms
+	0 - Used as a timer that checks when the player can descend from a platform
+	1 - Initally used to lock/unlock the player's controls after to wall jumping to "feign" momentum. No Longer used.
+	2 - Dash timer. When the dash timer goes off, the dash state is disabled.
+	3 - Dash cooldown. Time before the player can dash a again.
+
+>Destroy
+	Upon the player's death, play a death sound and restart the room.
+	If invincibility is on, the player destroy event will be nullified unless the player is falling out of bounds.
+
+>Draw
+	The player makes use of two shaders during gameplay
+	Shader1 - Tints the player bright orange while they are in a dashing state.
+	Shader2 - Tints the player bright yellow while they are Invincible.
+
+						- Objects -
+
+>obj_bullet
+	The bullet fired by the pig enemy. This object moves forward at a constant speed upon being created.
+	This object will destroy the player on contact, and then destroy itself afterward. When this object
+	touches a wall or camera boundary, it will be destroyed. When this object is destroyed, it will spawn
+	a mud splatter object.
+
+>obj_mudSplatter
+	An aesthetic effect that is created when a mud bullet destroys itself. This object stays on screen for 10 frames
+	and then destroys itself.
+
+>obj_goal
+	Spawns "closed". When the room has no dirty objects in it or Dirty Enemies, the goal becomes "open" and
+	changes his sprite. When the goal is opening, play a "ding" sound once. If the player touches a goal object 
+	while no dirty objects are present in the room, transport the player to the next room.
+	Also, when the player makes contact, the time string currently present on obj_timer of the current level 
+	will make be stored into the respective global variable.
+
+>obj_marker
+	Used for testing enemy collisions and behavior. When an enemy touches a marker, they will turn around and move
+	in the opposite direction. Once enemy behavior was improved, markers were no longer needed to prevent enemies from
+	falling off platforms.
+
+>obj_objectiveDirty/Clean
+	These are stationary objects the player must "clean" in order to open the goal. When the player makes contact
+	with dirty objects, the dirty objects are destroyed and a clean object is spawned in their place.
+
+>obj_restartFlag
+	A variant of the goal flag that restarts the game when the player makes contact with it.
+	This object is only present in the results screen and performs the role of the "play again" button.
+
+>obj_block
+	A standard solid collision block. Player and enemy objects cannot move through blocks. Enemies will turn around
+	when making contact will a block in front of them.
+
+>obj_danger
+	A "death" block that kills the player on contact. Used for spikes, and was previously used for 
+	"death-planes" at the bottom the bottom of the screen to kill the player upon falling.
+
+>obj_ice
+	A variant of obj_block that has slippery traction. The player object has reduced friction while standing 
+	on this object. This object is still solid, as such neither player or enemies can move through it.
+
+>obj_platform
+	A thin platform block that the player can jump through from the bottom, and descend from by holding down.
+
+>obj_dashTrail
+	An object that copy's the sprite of the player and gradually becomes transparent. Once full transparency is reached
+	This object destroys itself. Used for the player dash effects.
+	
+						- Enemies -
+
+>Enemy_Dirty
+	A dev block that represents generic enemy behavior. This object will kill the player on contact, unless the player
+	jumps on them or is currently dashing. When this object is destroyed it spawns a "clean" version of the enemy that
+	is stationary, and harmless to the player. Uses two variable definitions: hsp, an integer that represents the 
+	enemy's hspeed, and cleanEnemy, an asset for the enemy's clean variant.
+	All enemies inherent these variables and basic properties.
+
+>Cat
+	A Basic enemy that moves back and forth at a relatively quick speed. Will turn around when hitting a block or if
+	the area in front and below of them has no ground present. Can be jumped on or dashed through.
+
+>Rabbit
+	An enemy that moves slower than a cat, but jumps up and down, making them somewhat trickier to dash through.
+	Will turn around upon hitting a block and will jump on contact with a block below it. Effectively utilizes the
+	exact same code as the player to handle its jumping and gravity properties. Can be jumped on or dashed through.
+
+>Chicken
+	This enemy will fly around on a set path, typically out of the player's reach. The player mustuse a well-timed 
+	jump or dash to clean the airborne foe. Using a path assest as a variable definition. Can be jumped on or dashed through.
+
+>Pig
+	This enemy will shoot mud balls at the player when they enter it's line of sight. The player must jump through around its fire
+	and close the distance in order to reach jump or dash through this foe. The pig cannot turn around, thus making
+	jumping around the pig and dashing at its back is a viable strategy to defeat them. This enemy is stationary and simply
+	checks for the player in a short line in front of them, if the player enters that line, spawn mud balls (bullets).
+	Can be jumped or dashed through.
+
+>Turtle
+	The turtle is the most complex enemy in the game and utilizes a basic state machine to interact with the player.
+	Normally, the turtle will slowly walk back and forth like the cat, turning around when facing a block or a vacant space
+	in front of them. However, when the player enters the Turtle's "attack_range", the turtle activates its "aggro" mode,
+	retreating into its shell and spinning towards the player at a high speed. The turtle will turn around to continue pursuing
+	the player should it get jumped over. If the player leaves the attack range, the turtle reverts from its aggro state and
+	returns to its default wandering state. This enemy has an spike on its shell, so te player cannot defeat it by jumping on its back,
+	only by dashing. This object inherets base behaviors from obj_catDirty.
+	(This enemy used to be linked to a timeline for its state machine, but it caused problems, so that a few residual variables from
+	that era of implementation may exist and be unused.)
 
 - GUI and etc -
+
+>obj_persistent
+	This is the persistent game object that starts the game's main music and initializes global variables.
+	Global Variables:
+			Invincible - Player's invincibility status
+			devRoomTime - The completion time string for the Developer Room.
+			levelOneTime - The completion time string for level 1.
+			levelTwoTime - The completion time string for level 2.
+			levelThreeTime - The completion time string for level 3.
+			levelFourTime - The completion time string for level 4.\
+
+	All "time string" global variables are initialized with a string of "00:00:000".
+
+	This object is also responsible for listening to cheat code inputs.
+	(By the way):
+			Crtl + G - Restart the Game
+			Crtl + R - Restart the Room
+			Crtl + N - Move to the next room
+			Crtl + I - Toggle Player Invincibility
+			Crtl + C - Clean all objects and enemies in a room
+
+	When the final results room is entered, this object will stop the main music.
+	The player's level completion times are stored in this object and called upon by obj_resultScreen in the final room.
+
+>obj_controlsText
+	A simple object with a draw GUI event that just prints text for the game's controls in the title screen room.
+
+>obj_resultScreen
+	This object uses a timeline to print the player's level completion times. It first congratulates the player, then
+	prints each level's completion time, 1 after another with a 1 second delay. Once all levels' times are printed,
+	print "Challenge Again?" over the  Restart Flag object in the room.
+	This object will also play the results screen music upon being loaded into the room.
+	This object is persistent so that the music does not stack upon eachother if the player by chance restarts the results room
+	for whatever reason.
+
+>obj_timer
+	This object is responsible for most of the game's HUD. This object's step event calculates stage time (precise to miliseconds) 
+	based on how many frames have passed since the room started. Minutes, seconds, and miliseconds are stored in seperate variables
+	and converted into strings with a 2 (or 3 for milliseconds) space offset, so minutes/seconds can only display 2 values, and miliseconds
+	can only display 3. (This space offset is converted to 0s to complete the timer illusion.). All these values are concatinated into
+	on larger "displayTime" variable and displayed on the UI via the "draw_Text" function. This timer of course updates each frame.
+	The stage's name will also display above the timer.
+	(The minimap is handled via viewports, and while this isn't handled by obj_timer, on the subject of HUD, it feels appropriate to
+	mention in tandem.)
+	This object is not persistent and each level has its own obj_timer object.
