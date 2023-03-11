@@ -2,7 +2,7 @@
 // You can write your code in this editor
 
 //play background music
-audio_play_sound(snd_mainMusic,1,false)
+audio_play_sound(snd_mainMusic, 1, true)
 
 global.invincible = false;
 

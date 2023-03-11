@@ -8,7 +8,7 @@ if(keyboard_check(ord("G")) && keyboard_check(vk_control))
 }
 
 //Restart level
-if(keyboard_check(ord("R")) && keyboard_check(vk_control))
+if(keyboard_check(ord("R")))
 {
 	room_restart();
 }

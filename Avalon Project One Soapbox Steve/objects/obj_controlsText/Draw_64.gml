@@ -13,3 +13,4 @@ draw_text(55, 750, "Up / Space - Jump");
 draw_text(55, 775, "Shift / Z - Dash");
 draw_text(55, 800, "Left / Right (Near a wall) - Wall Slide");
 draw_text(55, 825, "Jump (While wall sliding) - Wall Jump");
+draw_text(55, 850, "Restart level - R");
