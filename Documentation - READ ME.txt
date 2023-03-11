@@ -6,7 +6,7 @@ This game is a 2D Platformer inspired by Super Meat Boy.
 The gameplay consists of the player running and jumping in a 2D space,
 cleaning dirty objects and enemies and reaching the goal flag at the end of each stage.
 The player cleans dirty objects by touching them, and defeats enemies by either jumping
-on them, or dashing into them. Only once all dirty objects and enemies are cleaned will the goal flag will open.
+on them, or dashing into them. Only once all dirty objects and enemies are cleaned will the goal flag open.
 The player is not scored with points, but rather via level completion time.
 Rather than display a high score, the player's completion times of each level are listed at the end of the game. 
 

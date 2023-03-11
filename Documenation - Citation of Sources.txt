@@ -1,0 +1,46 @@
+# ITSC-4230-Project-One-Avalon
+	
+	Documentation for the assets included: 
+
+	Sounds: 
+
+	Dash Sound:
+
+	8-Bit Drums – Snare by The Sans XD (CC0 – SampleFocus.com)
+	8-Bit Drums - Snare | Sample Focus
+
+	Death Sound:
+	“Cartoon Splat” by Breviceps (CC0 - Freesounds.org)
+	Freesound - "Cartoon Splat" by Breviceps
+	
+	Goal Sound:
+	“The Ding” by Suzenako (CC0 - Freesounds.org)
+	Freesound - "The ding" by suzenako
+	
+	Clean Sound:	
+	“Bubble Sound” by Ranner(CC0 - Freesounds.org)
+	Freesound - "bubble sound" by Ranner
+	
+	
+Music:
+
+	“Danger Storm” by Kevin MacLeod(incompetech.com)
+	Licensed under Creative Commons: By Attribution 4.0 License
+	http://creativecommons.org/licenses/by/4.0/
+
+"Pleasant Porridge" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+	Sprites and Tilesets: 
+
+	www.kenney.nl
+	Platformer Pack Redux
+	Licensed under CC0 1.0 Universal
+
+	Backgrounds: 
+
+	Pixel Skies Demo Backgrounds by Digital Moons (GameMaker Marketplace)
+Pixel Skies DEMO Background pack by Digital Moons | GameMaker: Marketplace (yoyogames.com)
+	
+
