@@ -18,6 +18,14 @@ The player's available actions consist of:
 - Dash [Z or Shift Key]
 - Wall Jump (Jump while pressed against a wall in mid-air) [Up Arrow Key / Space bar]
 
+						- Cheat Codes - 
+
+Crtl + G - Restart the Game
+Crtl + R - Restart the Room
+Crtl + N - Move to the next room
+Crtl + I - Toggle Player Invincibility
+Crtl + C - Clean all objects and enemies in a room
+
 >Properties
 	The player can only dash once in mid-air.
 	The player can only dash if they posses a non-zero value of hspeed.
