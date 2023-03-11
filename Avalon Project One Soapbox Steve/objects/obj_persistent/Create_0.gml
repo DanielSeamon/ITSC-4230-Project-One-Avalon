@@ -14,3 +14,4 @@ global.levelOneTime = "00:00:000";
 global.levelTwoTime = "00:00:000";
 global.levelThreeTime = "00:00:000";
 global.levelFourTime = "00:00:000";
+global.levelFiveTime = "00:00:000";

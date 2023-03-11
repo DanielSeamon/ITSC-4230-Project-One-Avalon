@@ -1,5 +1,12 @@
 Documentation for Soapbox Steve
 
+						- Story -
+
+The titular Soapbox Steve has returned to his city after a vacation to find it overrun with strange pollution!
+Trash is spewn everywhere, the skies are thick with smog, and the friendly animals are all going berserk!
+Play the role of Steve using his natural born powers of cleanliness to clean up his city's act and set it back on the right track!
+Scrub on Steve!
+
 						- Gameplay -
 
 This game is a 2D Platformer inspired by Super Meat Boy. (As such the player doesn't have lives nor a proper "game over" condition)
@@ -154,7 +161,8 @@ The player's available actions consist of:
 			levelOneTime - The completion time string for level 1.
 			levelTwoTime - The completion time string for level 2.
 			levelThreeTime - The completion time string for level 3.
-			levelFourTime - The completion time string for level 4.\
+			levelFourTime - The completion time string for level 4.
+			levelFiveTime - The completion time string for level 5.
 
 	All "time string" global variables are initialized with a string of "00:00:000".
 
@@ -174,8 +182,10 @@ The player's available actions consist of:
 
 >obj_resultScreen
 	This object uses a timeline to print the player's level completion times. It first congratulates the player, then
-	prints each level's completion time, 1 after another with a 1 second delay. Once all levels' times are printed,
-	print "Challenge Again?" over the  Restart Flag object in the room.
+	prints each level's completion time, 1 after another with a 1 second delay.
+	First prints the completion time of all levels.
+	Second, prints the names and roles of each team member.
+	Lastly, print "Challenge Again?" over the  Restart Flag object in the room.
 	This object will also play the results screen music upon being loaded into the room.
 	This object is persistent so that the music does not stack upon eachother if the player by chance restarts the results room
 	for whatever reason.

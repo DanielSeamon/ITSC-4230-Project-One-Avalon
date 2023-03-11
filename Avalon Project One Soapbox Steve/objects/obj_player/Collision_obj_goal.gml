@@ -38,6 +38,11 @@ if(!instance_exists(obj_enemyDirty) and !instance_exists(obj_objectiveDirty))
 				global.levelFourTime = obj_timer.displayTime;
 				show_debug_message("Level 4 Time: " + global.levelFourTime);
 				break;
+				
+			case "rm_level5":
+				global.levelFiveTime = obj_timer.displayTime;
+				show_debug_message("Level 4 Time: " + global.levelFiveTime);
+				break;
 			
 			default:
 				break;

@@ -9,7 +9,7 @@ draw_set_font (fnt_GUI);
 
 
 draw_text(room_width / 2 + ui_offset, 55, "Congratulations!");
-draw_text(room_width / 2 + ui_offset, 80, "Your Time Attack Results are:");
+draw_text(room_width / 2 + ui_offset, 80, "Your Time Results are:");
 		
 switch (printVal){
 	
@@ -44,6 +44,37 @@ switch (printVal){
 		draw_text(room_width / 2 + ui_offset, 130, "Level 2 - Skyscraper: " + global.levelTwoTime);
 		draw_text(room_width / 2 + ui_offset, 155, "Level 3 - The Park: " + global.levelThreeTime);
 		draw_text(room_width / 2 + ui_offset, 180, "Level 4 - Scaffolds: " + global.levelFourTime);
+		draw_text(room_width / 2 + ui_offset, 205, "Level 5 - Trash Pit: " + global.levelFiveTime);
+		
+		break;
+		
+	// Print Team Credits here
+	case 5:
+		draw_text(room_width / 2 + ui_offset, 105, "Level 1 - The Basics: " + global.levelOneTime);
+		draw_text(room_width / 2 + ui_offset, 130, "Level 2 - Skyscraper: " + global.levelTwoTime);
+		draw_text(room_width / 2 + ui_offset, 155, "Level 3 - The Park: " + global.levelThreeTime);
+		draw_text(room_width / 2 + ui_offset, 180, "Level 4 - Scaffolds: " + global.levelFourTime);
+		draw_text(room_width / 2 + ui_offset, 205, "Level 5 - Trash Pit: " + global.levelFiveTime);
+		
+		draw_text(1600, 55, "- Team Credits -");
+		draw_text(1600, 80, "Daniel Seamon - Producer");
+		draw_text(1600, 105, "Watson Whitehurst - Designer");
+		draw_text(1600, 130, "Jonathan Feurtado - Programmer");
+		draw_text(1600, 155, "Connor Simmons - Artist");
+		break;
+		
+	case 6:
+		draw_text(room_width / 2 + ui_offset, 105, "Level 1 - The Basics: " + global.levelOneTime);
+		draw_text(room_width / 2 + ui_offset, 130, "Level 2 - Skyscraper: " + global.levelTwoTime);
+		draw_text(room_width / 2 + ui_offset, 155, "Level 3 - The Park: " + global.levelThreeTime);
+		draw_text(room_width / 2 + ui_offset, 180, "Level 4 - Scaffolds: " + global.levelFourTime);
+		draw_text(room_width / 2 + ui_offset, 205, "Level 5 - Trash Pit: " + global.levelFiveTime);
+		
+		draw_text(1600, 55, "- Team Credits -");
+		draw_text(1600, 80, "Daniel Seamon - Producer");
+		draw_text(1600, 105, "Watson Whitehurst - Designer");
+		draw_text(1600, 130, "Jonathan Feurtado - Programmer");
+		draw_text(1600, 155, "Connor Simmons - Artist");
 		
 		// These coordinates are the coordinates above the restart flag.
 		draw_text(1700, 840, "Challenge Again?");

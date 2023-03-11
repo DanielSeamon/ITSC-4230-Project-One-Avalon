@@ -1,2 +1,2 @@
-// Display "Challenge Again?" text after 5 seconds
+//Print out the fourth stage time after 4 seconds
 printVal = 4;

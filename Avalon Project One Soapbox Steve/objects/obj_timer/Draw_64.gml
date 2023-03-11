@@ -29,6 +29,10 @@ switch (room){
 	case rm_level4:
 		draw_text(55, 55, "Scaffolds");
 		break;
+		
+	case rm_level5:
+		draw_text(55, 55, "Trash Pit");
+		break;
 	
 	default:
 		draw_text(55, 55, "This shouldn't show");
